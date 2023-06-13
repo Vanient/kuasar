@@ -8,7 +8,7 @@ edition = "2021"
 panic = 'abort'
 
 [features]
-default = []
+default = ["stratovirt"]
 qemu = ["qapi/qmp", "qapi/async-tokio-all", "unshare", "os_pipe"]
 cloud_hypervisor = ["api_client"]
 stratovirt = ["qapi/qmp", "qapi/async-tokio-all", "unshare", "os_pipe"]
