@@ -81,7 +81,6 @@ pub struct QemuVM {
     console_socket: String,
     agent_socket: String,
     netns: String,
-    #[serde(skip)]
     block_driver: BlockDriver,
     #[serde(skip)]
     wait_chan: Option<Receiver<(u32, i128)>>,

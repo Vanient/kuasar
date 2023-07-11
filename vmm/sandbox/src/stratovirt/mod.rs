@@ -80,16 +80,13 @@ pub struct StratoVirtVM {
     console_socket: String,
     agent_socket: String,
     netns: String,
-    #[serde(skip)]
     block_driver: BlockDriver,
     #[serde(skip)]
     wait_chan: Option<Receiver<(u32, i128)>>,
     #[serde(skip)]
     client: Option<QmpClient>,
     virtiofs_daemon: Option<VirtiofsDaemon>,
-    #[serde(skip)]
     pcie_root_bus: PcieRootBus,
-    #[serde(skip)]
     pcie_root_ports_pool: Option<PCIERootPorts>,
 }
 

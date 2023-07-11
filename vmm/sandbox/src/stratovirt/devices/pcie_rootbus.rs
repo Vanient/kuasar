@@ -15,10 +15,11 @@ limitations under the License.
 */
 
 use crate::device::Bus;
+use serde::{Deserialize, Serialize};
 
 // PcieRootBus is not a actual pci device, which is used to manage the
 // pci slot resources in the pcie.0 root bus
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct PcieRootBus {
     pub(crate) id: String,
     pub(crate) bus: Bus,

@@ -130,7 +130,7 @@ impl Default for HypervisorCommonConfig {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 #[allow(clippy::enum_variant_names)]
 pub enum BlockDriver {
     VirtioBlk,

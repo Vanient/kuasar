@@ -14,6 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+use serde::{Deserialize, Serialize};
 use std::os::unix::io::RawFd;
 
 use containerd_sandbox::error::{Error, Result};
@@ -51,7 +52,7 @@ pub trait Device {
     fn bus(&mut self) -> Option<&mut Bus>;
 }
 
-#[derive(PartialEq, Eq, Clone, Debug)]
+#[derive(PartialEq, Eq, Clone, Debug, Serialize, Deserialize)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum BusType {
     PCI,
@@ -66,7 +67,7 @@ pub enum BusType {
     NULL,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Bus {
     pub(crate) r#type: BusType,
     pub(crate) id: String,
@@ -127,7 +128,7 @@ impl Bus {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Slot {
     pub(crate) status: SlotStatus,
 }
@@ -140,7 +141,7 @@ impl Default for Slot {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum SlotStatus {
     Empty,
     Occupied(String),

@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 use sandbox_derive::CmdLineParams;
+use serde::{Deserialize, Serialize};
 
 use crate::device::Bus;
 
@@ -56,7 +57,7 @@ impl RootPort {
 impl_device_no_bus!(RootPort);
 impl_set_get_device_addr!(RootPort);
 
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct PCIERootPorts {
     pub(crate) id: String,
     pub(crate) bus: Bus,
